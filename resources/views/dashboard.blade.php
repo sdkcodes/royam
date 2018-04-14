@@ -8,14 +8,14 @@
                 </div>
                 <div class="card-content">
                     <p class="category">Users</p>
-                    <h3 class="title">49/50
-                        <small>GB</small>
+                    <h3 class="title">50
+                        <small></small>
                     </h3>
                 </div>
                 <div class="card-footer">
                     <div class="stats">
                         <i class="material-icons">person add</i>
-                        <a href="#pablo">Add new </a>
+                        <a href="{{ url('admin/newuser')}}">Add new </a>
                     </div>
                 </div>
             </div>
@@ -27,11 +27,11 @@
                 </div>
                 <div class="card-content">
                     <p class="category">Transactions</p>
-                    <h3 class="title">$34,245</h3>
+                    <h3 class="title">245</h3>
                 </div>
                 <div class="card-footer">
                     <div class="stats">
-                        <i class="material-icons">date_range</i> Last 24 Hours
+                        <i class="material-icons">reorder</i> <a href="{{ url('admin/newtransaction') }}">Add new</a>
                     </div>
                 </div>
             </div>

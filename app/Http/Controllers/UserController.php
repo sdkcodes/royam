@@ -41,7 +41,7 @@ class UserController extends Controller
 
     public function update(Request $request, $id){
     	$user = User::findOrFail($id);
-    	$user = new User;
+    	
     	$user->first_name = $request->first_name;
     	$user->last_name = $request->last_name;
     	$user->email = $request->email;
@@ -50,8 +50,9 @@ class UserController extends Controller
     	$user->city = $request->city;
     	$user->state = $request->state;
     	$user->postal_code = $request->postal;
+    	$user->user_type = $request->role;
     	$user->save();
-
+    	Alert::success("User updated successfully")->flash();
     	return back();	
     }
 

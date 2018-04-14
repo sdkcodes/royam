@@ -12,7 +12,7 @@ class TransactionController extends Controller
     public function index($id=NULL){
     	if (!is_null($id)){
     		$data['transaction'] = Transaction::findOrFail($id);
-    		return view('transaction', $data);
+    		return view('edittransaction', $data);
     	}
 
     	$data['transactions'] = Transaction::all();
@@ -51,8 +51,8 @@ class TransactionController extends Controller
     	$t->price = $request->price;
     	$t->departure_location = $request->departure;
     	$t->arrival_location = $request->arrival;
-    	$t->departure_time = $request->departure_time;
-    	$t->arrival_time = $request->arrival_time;
+    	// $t->departure_time = $request->departure_time;
+    	// $t->arrival_time = $request->arrival_time;
     	$t->adult_count = $request->adult_count;
     	$t->children_count = $request->children_count;
     	$t->infant_count = $request->infant_count;
@@ -63,7 +63,9 @@ class TransactionController extends Controller
     }
 
     public function delete($id){
+
     	Transaction::where('id', $id)->delete();
+    	Alert::info("Transaction deleted")->flash();
     	return back();
     }
 }
