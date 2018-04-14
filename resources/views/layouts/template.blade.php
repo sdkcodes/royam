@@ -153,11 +153,11 @@
 <script src="{{ asset('paper/js/perfect-scrollbar.jquery.min.js') }}"></script>
 <!--  Notifications Plugin    -->
 <script src="{{ asset('paper/js/bootstrap-notify.js') }}"></script>
-<!--  Google Maps Plugin    -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+
 <!-- Material Dashboard javascript methods -->
 <script src="{{ asset('paper/js/material-dashboard.js?v=1.2.0') }}"></script>
 
+<script src="{{ asset('js/typeahead.bundle.js') }}"></script>
 <style type="text/css">
   
   #header-container.fixed{
@@ -178,5 +178,22 @@
     @endforeach
 
   });
+</script>
+<script>
+    var users = new Bloodhound({
+      datumTokenizer: Bloodhound.tokenizers.obj.whitespace('email'),
+      queryTokenizer: Bloodhound.tokenizers.whitespace,
+      prefetch: '../data/films/post_1960.json',
+      remote: {
+        url: "{{ url('users/querybyemail?email=') }}" + "%QUERY",
+        wildcard: '%QUERY'
+      }
+    });
+
+    $('.transaction-email').typeahead(null, {
+      name: 'users',
+      display: 'email',
+      source: users
+    });
 </script>
 </html>

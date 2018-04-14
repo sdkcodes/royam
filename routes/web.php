@@ -1,5 +1,8 @@
 <?php
 
+use App\User;
+use Illuminate\Http\Request;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,7 +22,13 @@ Route::get('admin/dashboard', function(){
 	return view('dashboard');
 });
 
+Route::get('users/querybyemail', function(Request $request){
 
+	$users = User::where('email', "LIKE", "%$request->email%")->get(['id', 'email', 'first_name']);
+	// $users = User::all();
+	return $users;
+});
+Route::get('admin/newtransaction', "TransactionController@new");
 Route::post('admin/transactions', "TransactionController@store");
 Route::get('admin/transactions', "TransactionController@index");
 Route::get('admin/transactions/{transaction}', "TransactionController@index");

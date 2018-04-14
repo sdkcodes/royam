@@ -8,81 +8,90 @@
                     <p class="category">Add new transaction</p>
                 </div>
                 <div class="card-content">
-                    <form>
+                    <form method="post" action="{{ url('admin/transactions') }}">
+                        {{ csrf_field() }}
                         <div class="row">
                             <div class="col-md-5">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Company (disabled)</label>
-                                    <input type="text" class="form-control" disabled>
+                                    <label class="control-label">Passenger Email</label>
+                                    <input type="text" class="form-control transaction-email" id="email-input" name="email">
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Username</label>
-                                    <input type="text" class="form-control">
+                                    <select class="form-control" name="class">
+                                        <option value="Economy">Economy</option>
+                                        <option value="Business">Business</option>
+                                        <option value="First class">First class</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Email address</label>
-                                    <input type="email" class="form-control">
+                                    <label class="control-label">Price $</label>
+                                    <input type="number" class="form-control" name="price">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Fist Name</label>
-                                    <input type="text" class="form-control">
+                                    <label class="control-label">Departure</label>
+                                    <input type="text" class="form-control departure" name="departure">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Last Name</label>
-                                    <input type="text" class="form-control">
+                                    <label class="control-label">Arrival</label>
+                                    <input type="text" class="form-control arrival" name="arrival">
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        {{-- <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Adress</label>
                                     <input type="text" class="form-control">
                                 </div>
                             </div>
+                        </div> --}}
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Departute time</label>
+                                    <input type="datetime-local" class="form-control" name="departure_time">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Arrival time</label>
+                                    <input type="datetime-local" class="form-control" name="arrival_time">
+                                </div>
+                            </div>
+                            
                         </div>
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">City</label>
-                                    <input type="text" class="form-control">
+                                    <label class="control-label">Adults</label>
+                                    <input type="number" class="form-control" name="adult_count">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Country</label>
-                                    <input type="text" class="form-control">
+                                    <label class="control-label">Children</label>
+                                    <input type="number" class="form-control" name="children_count">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Postal Code</label>
-                                    <input type="text" class="form-control">
+                                    <label class="control-label">Infants</label>
+                                    <input type="number" class="form-control" name="infant_count">
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>About Me</label>
-                                    <div class="form-group label-floating">
-                                        <label class="control-label"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
-                                        <textarea class="form-control" rows="5"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary pull-right">Update Profile</button>
+                        
+                        <button type="submit" class="btn btn-primary pull-right">Create Transaction</button>
                         <div class="clearfix"></div>
                     </form>
                 </div>

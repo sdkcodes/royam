@@ -4,7 +4,7 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header" data-background-color="purple">
-                <h4 class="title">Users <a href="{{ url('admin/newuser') }}" class="pull-right btn btn-primary">Add new</a></h4>
+                <h4 class="title">Users <a href="{{ url('admin/newuser') }}" class="pull-right btn btn-default">Add new</a></h4>
                 <p class="category">All Users</p>
             </div>
             <div class="card-content table-responsive">
