@@ -26,9 +26,7 @@ Route::get('admin/transactions/{transaction}', "TransactionController@index");
 Route::put('admin/transactions/{transaction}', "TransactionController@update");
 Route::delete('admin/transactions/{transaction}', "TransactionController@delete");
 
-Route::get('admin/newuser', function(){
-	return view('adduser');
-});
+Route::get('admin/newuser', "UserController@new");
 Route::post('admin/users', "UserController@store");
 Route::get('admin/users', "UserController@index");
 Route::get('admin/users/{user}', "UserController@index");

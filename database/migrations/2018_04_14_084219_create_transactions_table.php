@@ -20,6 +20,10 @@ class CreateTransactionsTable extends Migration
             $table->string('arrival_location');
             $table->dateTime('departure_time');
             $table->dateTime('arrival_time');
+            $table->integer('adult_count')->default(1);
+            $table->integer('children_count')->default(0);
+            $table->integer('infant_count')->default(0);
+            $table->string('class');
             $table->decimal('price', 8, 2);
             $table->timestamps();
         });

@@ -44,13 +44,13 @@
                     <li>
                         <a href="{{ url('admin/users') }}">
                             <i class="material-icons">content_paste</i>
-                            <p>Table List</p>
+                            <p>Users</p>
                         </a>
                     </li>
                     <li>
                         <a href="{{ url('admin/transactions') }}">
                             <i class="material-icons">library_books</i>
-                            <p>Typography</p>
+                            <p>Transactions</p>
                         </a>
                     </li>
                     
@@ -77,7 +77,7 @@
                                     <p class="hidden-lg hidden-md">Dashboard</p>
                                 </a>
                             </li>
-                            <li class="dropdown">
+                            {{-- <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <i class="material-icons">notifications</i>
                                     <span class="notification">5</span>
@@ -106,7 +106,7 @@
                                     <i class="material-icons">person</i>
                                     <p class="hidden-lg hidden-md">Profile</p>
                                 </a>
-                            </li>
+                            </li> --}}
                         </ul>
                         <form class="navbar-form navbar-right" role="search">
                             <div class="form-group  is-empty">
@@ -158,4 +158,25 @@
 <!-- Material Dashboard javascript methods -->
 <script src="{{ asset('paper/js/material-dashboard.js?v=1.2.0') }}"></script>
 
+<style type="text/css">
+  
+  #header-container.fixed{
+    z-index: 1000 !important
+  }
+</style>
+{{-- <script src="{{ asset('js/notify.min.js') }}"></script> --}}
+<script type="text/javascript">
+  jQuery(document).ready(function($) {
+    
+    @foreach (Alert::getMessages() as $type => $messages)
+      @foreach ($messages as $message)
+      @if($type === "warning")
+        @php $type = "warn" @endphp
+      @endif
+      $.notify("{{ $message }}", "{{ $type }}");
+      @endforeach
+    @endforeach
+
+  });
+</script>
 </html>

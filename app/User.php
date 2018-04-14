@@ -30,4 +30,8 @@ class User extends Authenticatable
     public function transactions(){
         return $this->hasMany(Transaction::class);
     }
+
+    public function name(){
+        return ucfirst($this->first_name) . " " . ucfirst($this->last_name);
+    }
 }

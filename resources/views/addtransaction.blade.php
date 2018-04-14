@@ -88,7 +88,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        {{-- <div class="col-md-4">
             <div class="card card-profile">
                 <div class="card-avatar">
                     <a href="#pablo">
@@ -104,6 +104,6 @@
                     <a href="#pablo" class="btn btn-primary btn-round">Follow</a>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 @endsection

@@ -4,8 +4,8 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header" data-background-color="purple">
-                    <h4 class="title">Add User</h4>
-                    <p class="category">Add new user</p>
+                    <h4 class="title">Edit User</h4>
+                    <p class="category">Edit user</p>
                 </div>
                 <div class="card-content">
                     <form method="post" action="{{ url('admin/users') }}">
